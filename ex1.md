@@ -1,30 +1,39 @@
 # Exercises - Chapter 1
 
 [Exercises - Chapter 1](#exercises-chapter-1)
-- [$1.1$](#11)
-- [$1.2$](#12)
-- [$1.3$](#13)
-- [$1.4$](#14)
-- [$1.5$](#15)
-- [$1.6$](#16)
-- [$1.7$](#17)
-- [$1.8$](#18)
-- [$1.9$](#19)
-- [$1.10$](#110)
-- [$1.11$](#111)
-- [$1.12$](#112)
-- [$1.13$](#113)
-- [$1.14$](#114)
-- [$1.15$](#115)
-- [$1.16$](#116)
-- [$1.17$](#117)
-- [$1.18$](#118)
-- [$1.19$](#119)
-- [$1.20$](#120)
-- [$1.21$](#121)
-- [$1.22$](#122)
-- [$1.23$](#123)
- 
+- [1.01](#11)
+- [1.02](#12)
+- [1.03](#13)
+- [1.04](#14)
+- [1.05](#15)
+- [1.06](#16)
+- [1.07](#17)
+- [1.08](#18)
+- [1.09](#19)
+- [1.10](#110)
+- [1.11](#111)
+- [1.12](#112)
+- [1.13](#113)
+- [1.14](#114)
+- [1.15](#115)
+- [1.16](#116)
+- [1.17](#117)
+- [1.18](#118)
+- [1.19](#119)
+- [1.20](#120)
+- [1.21](#121)
+- [1.22](#122)
+- [1.23](#123)
+- [1.24](#124)
+- [1.25](#125)
+- [1.26](#126)
+- [1.27](#127)
+- [1.28](#128)
+- [1.29](#129)
+- [1.30](#130)
+- [1.31](#131)
+- [1.32](#132)
+- [1.33](#133)
   
 ## $1.1$
 
@@ -774,4 +783,219 @@ $\empty^*\ = \ \{\epsilon\}$
 
 ## $1.22$
 
+$\Sigma\ =\ \{a,\ b,\ /,\ \#\}$
+
 ### $a.)$
+
+<img src="https://user-images.githubusercontent.com/74255152/180603105-f70cd7cc-1321-4d89-bab4-e8d4066fbef2.png">
+
+### $b.)\ /\#(a \cup b \cup /)^*\#(\# \cup ((a \cup b)(a \cup b \cup /)^*\#))^*/$
+
+## $1.23$
+
+$Let\ B\ be\ any\ language\ over\ the\ alphabet\ \Sigma.\ Prove\ that\ B\ =\ B^+\ iff\ BB \subseteq B.$ 
+
+### $\mathbf{1.}\ B\ =\ B^+ \rArr BB \subseteq B$
+
+$B\ =\ B^+ \rArr B\ =\ BB\ (*)$
+$B \subseteq B\ (**)$
+$(*),(**) \rArr BB \subseteq B$
+
+### $\mathbf{2.}\ B\ =\ B^+ \lArr BB \subseteq B$
+
+$BB \subseteq B\ (***)$
+$w \in B^+ \rArr w\ =\ x_1x_2...x_k, x_i \in B,\ k \ge 1$
+$x_1,\ x_2 \in B,\ (***) \rArr x_1x_2 \in B$
+$x_1x_2,\ x_3 \in B,\ (***) \rArr x_1x_2x_3 \in B \rArr BBB \subseteq B$
+$If\ we\ continue:\ x_1x_2...x_k \in B \rArr B^+ \subseteq B$
+
+## $1.24$
+
+<img src="https://user-images.githubusercontent.com/74255152/180610801-c753f604-da13-489d-bf64-3d2bf2d4770b.png">
+
+### $a.)\ T_1\ on\ input\ 011$
+
+$000$
+
+### $b.)\ T_1\ on\ input\ 211$
+
+$111$
+
+### $c.)\ T_1\ on\ input\ 121$
+
+$011$
+
+### $d.)\ T_1\ on\ input\ 0202$
+
+$0101$
+
+### $e.)\ T_2\ on\ input\ b$
+
+$1$
+
+### $f.)\ T_2\ on\ input\ bbab$
+
+$1111$
+
+### $g.)\ T_2\ on\ input\ bbbbbb$
+
+$110110$
+
+### $h.)\ T_2\ on\ input\ \epsilon$
+
+$\epsilon\ (the\ empty\ string)$
+
+## $1.25$
+
+### $Formal\ definition\ of\ \mathbf{FST}$
+
+$A\ \mathbf{finite\ state\ transducer}\ is\ a\ 5-tuple\ (Q,\ \Sigma,\ \delta,\ q_0,\ \Gamma),\ where:$
+
+$\mathbf{1.}\ Q\ is\ a\ finite\ set\ called\ the\ \mathbf{states},$
+$\mathbf{2.}\ \Sigma\ is\ a\ finite\ set\ called\ the\ \mathbf{input\ alphabet},$
+$\mathbf{3.}\ \delta:\ Q\ \times\ \Sigma \rarr\ Q\ \times\ \Gamma\ is\ the\ \mathbf{transducer\ function},$
+$\mathbf{4.}\ q_0 \in Q\ is\ the\ \mathbf{start\ state},\ and$
+$\mathbf{5.}\ \Gamma\ is\ the\ \mathbf{output\ alphabet}.$
+
+## $1.26$
+
+### $T_1$
+
+$\mathbf{1.}\ Q\ =\ \{q_1,\ q_2\},$
+$\mathbf{2.}\ \Sigma\ =\ \{0,\ 1,\ 2\},$
+$\mathbf{3.}\ \delta\ is\ described\ as:$
+
+|     |$0$  |$1$  |$2$  |
+|:---:|:---:|:---:|:---:|
+|$q_1$|$q_1 \times 0$|$q_1 \times 0$|$q_2 \times 1$     |
+|$q_2$|$q_1 \times 0$|$q_2 \times 1$|$q_2 \times 1$     |
+
+
+$\mathbf{4.}\ q_1\ is\ the\ start\ state, and$
+$\mathbf{5.}\ \Gamma\ =\ \{0,1\}$
+
+### $T_2$
+
+$\mathbf{1.}\ Q\ =\ \{q_1,\ q_2,\ q_3\},$
+$\mathbf{2.}\ \Sigma\ =\ \{a,\ b\},$
+$\mathbf{3.}\ \delta\ is\ described\ as:$
+
+|     |$a$  |$b$  |
+|:---:|:---:|:---:|:---:|
+|$q_1$|$q_2 \times 1$|$q_3 \times 1$ |
+|$q_2$|$q_3 \times 1$|$q_1 \times 0$ |
+|$q_3$|$q_1 \times 0$|$q_2 \times 1$ |
+
+
+$\mathbf{4.}\ q_1\ is\ the\ start\ state, and$
+$\mathbf{5.}\ \Gamma\ =\ \{0,1\}$
+
+
+## $1.27$
+
+$Give\ the\ state\ diagram\ of\ an\ \mathbf{FST}\ the\ following\ behavior:$
+$\Sigma\ =\ \Gamma\ =\ \{0,\ 1\}$
+$Its\ output\ string\ is\ identical\ to\ the\ input\ string\ on\ the\ even\ positions$
+$but\ inverted\ on\ the\ odd\ positions$
+
+<img src="https://user-images.githubusercontent.com/74255152/180613188-1ff85e3a-429e-4a03-8b6a-9b2a760ecaf9.png">
+
+## $1.28$
+
+$\Sigma\ =\ \{a,\ b\}$
+
+### $a.)\ a(abb)^* \cup b$
+
+<img src="https://user-images.githubusercontent.com/74255152/180613832-022d51e8-0d1a-4a02-be94-f94559b98719.png">
+
+### $b.)\ a^+ \cup (ab)^+$
+
+<img src="https://user-images.githubusercontent.com/74255152/180613833-c093a827-96cc-4d10-ae84-ec1649caa2b3.png">
+
+### $c.)\ (a \cup b^+)a^+b^+$
+
+<img src="https://user-images.githubusercontent.com/74255152/180613835-ac1dc4dc-58e3-4194-b401-363a2e2803b8.png">
+
+## $1.29$
+
+### $a.)\ A_1 = \{0^n1^n2^n\ |\ n \geq 0\}$
+
+$\mathbf{Assumption:}$
+$Assume\ that\ A_1\ is\ regular.\ Let\ p\ be\ the\ pumping\ length.$
+$Choose\ s\ to\ be\ the\ string\ 0^p1^p2^p.\ Because\ s\in A_1\ and\ |s| \ge p,$
+$the\ pumping\ lemma\ guarantees\ that\ s\ can\ be\ split\ into\ three\ pieces,$
+$s = xyz,\ where\ for\ any\ i \ge 0\ the\ string\ xy^iz \in A_1$. 
+
+$\mathbf{Contradiction:}$
+$y\ consists\ only\ of\ 0s\ and\ 1s.\ In\ this\ case$
+$xyyz\ may\ have\ the\ same\ number\ of\ 0s\ and\ 1s\,\ but\ they\ will\ be$
+$out\ of\ order\ and\ be\ twice\ as\ many\ as\ the\ number\ of\ 2s.$
+
+$\mathbf{Conclusion:}$
+$Thus,\ we\ have\ a\ contradiction\ and\ our\ initial\ assumption\ is\ false,$
+$so\ A_1\ is\ not\ regular\ (\mathbf{qed}).$
+
+### $b.)\ A_2 = \{www\ |\ w \in \{a,\ b\}^*\}$
+
+$\mathbf{Assumption:}$
+$Assume\ that\ A_2\ is\ regular.\ Let\ p\ be\ the\ pumping\ length.$
+$Also,\ given\ the\ definition\ of\ A_2,\ we\ can\ deduce\ that\ any\ string$
+$from\ A_2\ has\ length\ in\ M_3\ (multiples\ of\ 3)\ (*).$
+$Choose\ s\ to\ be\ the\ string\ www,\ where\ w\ has\ length\ p.$
+$Because\ s \in A_2\ and\ |s| \geq A_2,\ the\ pumping\ lemma\ guarantees\ that$
+$s\ can\ be\ split\ into\ three\ pieces,\ s = xyz,\ where\ for\ any\ i \ge 0$
+$the\ string\ xy^iz\ \in A_2.$
+
+$\mathbf{Contradiction:}$
+$x = \epsilon,\ y= ww\ and\ z = w.\ In\ this\ case\ xyyz\ has\  length\ in\ M_5\ (multiples\ of\ 5),$
+$which\ contradicts\ (*).$
+
+$\mathbf{Conclusion:}$
+$Thus,\ we\ have\ a\ contradiction\ and\ our\ initial\ assumption\ is\ false,$
+$so\ A_2\ is\ not\ regular\ (\mathbf{qed}).$
+
+### $c.)\ A_3 = \{a^{2^n}\ |\ n \geq 0\}$
+
+$\mathbf{Assumption:}$
+$Assume\ that\ A_3\ is\ regular.\ Let\ p\ be\ the\ pumping\ length.$
+$Choose\ s\ to\ be\ the\ string\ a^{2^p}.\ Because\ s \in A_3\ and\ s \geq p,$
+$the\ pumping\ lemma\ guarantees\ that\ s\ can\ be\ split\ into\ three\ pieces,$
+$s = xyz,\ where\ for\ any\ i \geq 0\ the\ string\ xy^iz \in A_3.$
+$Given\ the\ definition\ of\ A_3,\ any\ string\ in\ A_3\ contains\ 2^n\ a's, n \ge 0.$
+$This\ results\ in\ an\ even\ number\ of\ a's\ for\ any\ string\ in\ A_3\ (*).$
+
+$\mathbf{Contradiction:}$
+$x = \epsilon,\ y = a^{2^p - 1}\ and\ z = a.\ In\ this\ case\ xyyz = a^{2^p - 1}a^{2^p - 1}a = a^{2^{p + 1} - 1},$
+$which\ means\ s\ has\ an\ odd\ number\ of\ a's,\ which\ contradicts\ (*).$
+
+
+$\mathbf{Conclusion:}$
+$Thus,\ we\ have\ a\ contradiction\ and\ our\ initial\ assumption\ is\ false,$
+$so\ A_3\ is\ not\ regular\ (\mathbf{qed}).$
+
+## $1.30$
+
+$The\ error\ lies\ in\ the\ choosing\ of\ s = 0^p1^p.\ The\ chosen\ string\ needs\ to$
+$cover\ all\ strings\ in\ 0^*1^*\ which\ are\ of\ length\ at\ least\ p.\ s\ only\ covers\ a$
+$general\ subset\ of\ those,\ so\ the\ proof\ is\ faulty.$
+
+## $1.31$
+
+$Because\ A\ is\ regular,\ it\ means\ it\ can\ be\ pumped.\ Let\ p\ be\ the\ pumping\ length,$
+$and\ s \in A,\ |s| \geq p.\ This\ means\ s\ can\ be\ split\ into\ three\ pieces,\ s = xyz,\ where\ for$
+$any\ i \geq 0\ the\ string\ xy^iz \in A.$
+$s^R = zy^ix,\ s \in A^R,\ |s^R| = |s| \geq p \rArr Any\ string\ in\ A^R\ of\ length\ at\ least\ p\ can\ be\ pumped$
+$\rArr A^R\ is\ regular\ (\mathbf{qed}).$
+
+## $1.32$
+
+0101
+0111
+1100
+
+1010
+1110
+0011
+
+
+## $1.33$
