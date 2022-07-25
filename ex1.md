@@ -1079,7 +1079,7 @@ $a.)\ for\ k \le n - 2:$
 $b.)\ for\ k = n - 1:$
 | |a|
 |:---:|:---:|
-|$m_{n-1}$|m_0|
+|$m_{n-1}$|$m_0$|
 
 $\mathbf{4.}\ The\ start\ state\ is\ m_0.$
 $\mathbf{5.}\ F = \{m_0\}$
