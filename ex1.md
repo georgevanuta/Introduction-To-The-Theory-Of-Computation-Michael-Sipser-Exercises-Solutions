@@ -34,6 +34,11 @@
 - [1.31](#131)
 - [1.32](#132)
 - [1.33](#133)
+- [1.34](#134)
+- [1.35](#135)
+- [1.36](#136)
+- [1.37](#137)
+- [1.38](#138)
   
 ## $1.1$
 
@@ -968,7 +973,6 @@ $\mathbf{Contradiction:}$
 $x = \epsilon,\ y = a^{2^p - 1}\ and\ z = a.\ In\ this\ case\ xyyz = a^{2^p - 1}a^{2^p - 1}a = a^{2^{p + 1} - 1},$
 $which\ means\ s\ has\ an\ odd\ number\ of\ a's,\ which\ contradicts\ (*).$
 
-
 $\mathbf{Conclusion:}$
 $Thus,\ we\ have\ a\ contradiction\ and\ our\ initial\ assumption\ is\ false,$
 $so\ A_3\ is\ not\ regular\ (\mathbf{qed}).$
@@ -989,13 +993,102 @@ $\rArr A^R\ is\ regular\ (\mathbf{qed}).$
 
 ## $1.32$
 
-0101
-0111
-1100
+$\mathbf{Show\ that\ B\ is\ regular.}$
 
-1010
-1110
-0011
+$In\ order\ to\ prove\ that\ B\ is\ regular,\ we\ can\ prove\ that\ B^R\ is\ regular\ (ex.\ 1.31).$
 
+$So,\ we\ construct\ an\ NFA\ for\ B^R:$
+
+<img src="https://user-images.githubusercontent.com/74255152/180668939-6b9f3739-ea44-489b-afae-9383508a0282.png">
+
+$B^R\ can\ be\ simulated\ by\ an\ NFA \rArr B^R\ is\ regular \rArr B\ is\ regular\ (\mathbf{qed}).$
 
 ## $1.33$
+
+$\mathbf{Show\ that\ C\ is\ regular.}$
+
+$\mathbf{Remark:}\ the\ triple\ of\ a\ number\ in\ binary\ is\ the\ sum$
+$of\ the\ number\ itself\ with\ its\ 1\ bit\ left-shifted\ value\ (its\ double).$
+
+$Also,\ we\ are\ going\ to\ prove\ that\ C^R\ is\ regular,\ because\ it's\ simpler.$
+
+$So,\ we\ construct\ an\ NFA\ for\ C^R:$
+
+<img src="https://user-images.githubusercontent.com/74255152/180669285-1799e2f6-c468-4fb0-ac1b-4e65ee47961f.png">
+
+$C^R\ can\ be\ simulated\ by\ an\ NFA \rArr C^R\ is\ regular \rArr C\ is\ regular\ (\mathbf{qed}).$
+
+## $1.34$
+
+$\mathbf{Show\ that\ D\ is\ regular.}$
+
+$We\ are\ going\ to\ prove\ that\ D^R\ is\ regular,\ because\ it's\ simpler.$
+
+$So,\ we\ construct\ an\ NFA\ for\ D^R:$
+
+<img src="https://user-images.githubusercontent.com/74255152/180669491-c468d722-2e8d-49f4-a12e-41deedd62682.png">
+
+$D^R\ can\ be\ simulated\ by\ an\ NFA \rArr D^R\ is\ regular \rArr D\ is\ regular\ (\mathbf{qed}).$
+
+## $1.35$
+
+$\mathbf{Show\ that\ E\ is\ not\ regular.}$
+
+$\mathbf{Assumption:}$
+$Assume\ that\ E\ is\ regular.\ Let\ p\ be\ the\ pumping\ length.$
+$Choose\ s\ to\ be\ a\ string\ from\ E\ of\ length\ bigger\ than\ p.\ Because\ s \in E\ and\ s \geq p,$
+$the\ pumping\ lemma\ guarantees\ that\ s\ can\ be\ split\ into\ three\ pieces,$
+$s = xyz,\ where\ for\ any\ i \geq 0\ the\ string\ xy^iz \in E.$
+
+$\mathbf{Contradiction:}$
+$s\ is\ of\ the\ form\ zs',\ where\ z\ is\ the\ first\ character$
+$in\ s,\ and\ s'\ is\ the\ tail\ of\ s.$
+$x = z,\ y = s',\ z = \epsilon$
+$Let's\ assume\ that\ the\ top\ row\ is\ formed\ of\ alternating\ 1s\ and\ 0s,$
+$with\ the\ last\ bit\ being\ the\ first\ bit\ flipped.$
+$This\ means\ that\ the\ bottom\ row\ is\ of\ the\ same\ form,\ but\ starting$
+$with\ the\ first\ bit\ flipped.$
+$For\ the\ sake\ of\ the\ demonstration,\ We'll\ go\ with\ the\ first\ bit\ being\ 0.$
+$Thus,\ x = [0|1],\ y = [10101...1|01010...0],\ z = \epsilon.$
+$xyyz = [010101...\mathbf{1}10101...1/101010...\mathbf{0}01010...0]$
+$The\ bottom\ row\ now\ has\ a\ bit\ which\ is\ incorrect,\ so\ xyyz \notin E.$
+
+$\mathbf{Conclusion:}$
+$Thus,\ we\ have\ a\ contradiction\ and\ our\ initial\ assumption\ is\ false,$
+$so\ E\ is\ not\ regular\ (\mathbf{qed}).$
+
+## $1.36$
+
+$B_n = \{a^k\ |\ where\ k\ is\ a\ multiple\ of\ n\}$
+
+$\mathbf{Show\ that\ for\ each\ n \geq 1,\ the\ language\ B_n\ is\ regular.}$
+
+$Giving\ a\ formal\ description\ of\ our\ DFA\ is\ easier\ than\ drawing\ a\ state\ diagram.$
+
+$For\ B_n:$
+$\mathbf{1.}\ Q = {m_0,\ m_1,\ m_2\ ...\ m_{n-1}}$
+$The\ states\ represent\ the\ remainder\ of\ of\ the\ current\ length\ when\ divided\ by\ n,$
+$\mathbf{2.}\ \Sigma = \{a\}$
+$\mathbf{3.}\ \delta:$
+$a.)\ for\ k \le n - 2:$
+
+| |a|
+|:---:|:---:|
+|$m_k$|$m_{k+1}$|
+
+$b.)\ for\ k = n - 1:$
+| |a|
+|:---:|:---:|
+|$m_{n-1}$|m_0|
+
+$\mathbf{4.}\ The\ start\ state\ is\ m_0.$
+$\mathbf{5.}\ F = \{m_0\}$
+
+## $1.37$
+
+$C_n = \{x\ |\ x\ is\ a\ binary\ number\ that\ is\ a\ multiple\ of\ n\}$
+
+$\mathbf{Show\ that\ for\ each\ n \geq 1,\ the\ language\ C_n\ is\ regular.}$
+
+## $1.38$
+
