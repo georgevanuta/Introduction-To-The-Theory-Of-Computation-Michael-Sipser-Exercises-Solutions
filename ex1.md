@@ -1067,7 +1067,7 @@ $Giving\ a\ formal\ description\ of\ our\ DFA\ is\ easier\ than\ drawing\ a\ sta
 
 $For\ B_n:$
 $\mathbf{1.}\ Q = {m_0,\ m_1,\ m_2\ ...\ m_{n-1}}$
-$The\ states\ represent\ the\ remainder\ of\ of\ the\ current\ length\ when\ divided\ by\ n,$
+$The\ states\ represent\ the\ remainder\ of\ the\ current\ length\ when\ divided\ by\ n,$
 $\mathbf{2.}\ \Sigma = \{a\}$
 $\mathbf{3.}\ \delta:$
 $a.)\ for\ k \le n - 2:$
